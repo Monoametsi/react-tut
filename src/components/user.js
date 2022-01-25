@@ -15,7 +15,7 @@ function User(prop){
 
             <div className="btn-cont w-100 p-2 d-flex justify-content-between">
             <button className="btn btn-primary w-50 me-2">Update {prop.name} details</button>
-            <button className="btn btn-danger w-50 ms-2">Delete {prop.name}</button>
+            <button className="btn btn-danger w-50 ms-2" onClick={prop.onClick}>Delete {prop.name}</button>
           </div>
         </div>
     )

@@ -7,11 +7,13 @@ function App() {
 
   const submitUser = () => {
    userAdded(userExist => {
-      if(userExist){
-        return  userExist = false;
-      }else{
-        return userExist = true;
-      }
+        return  userExist = true;
+    });
+  }
+
+  const deleteUser = () => {
+    userAdded(userExist => {
+      return  userExist = false;
     });
   }
 
@@ -34,7 +36,7 @@ function App() {
       </div>
     </div>
     
-    { userExists ? <User name="MJ" email="myEmail@gmail.com" /> : null}
+    { userExists ? <User name="MJ" email="myEmail@gmail.com" onClick={deleteUser} /> : null}
   </div>
   )
 }
