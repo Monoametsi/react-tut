@@ -1,10 +1,7 @@
 import Input_field from "../components/input-field";
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Login(){
-    const [showFPWD, hideFPWD] = useState(false);
-
     return (
         <div>
             <div className="container-sm shadow rounded p-3 mt-3 w-50">
@@ -23,9 +20,7 @@ function Login(){
             </div>
 
             <div className="d-flex justify-content-center align-items-center container-sm shadow rounded p-3 mt-3 w-50">
-                
-                    <div className="d-flex align-items-center"> New to Movie Spot? <Link to="/" className="form-link text-primary nav-link">Create an account</Link> </div>
-                
+                <div className="d-flex align-items-center"> New to Movie Spot? <Link to="/" className="form-link text-primary nav-link">Create an account</Link> </div>
             </div>
         </div>
     )
