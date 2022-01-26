@@ -1,43 +1,18 @@
-import { useState } from 'react';
-import User from './components/user';
-import Input_field from './components/input-field';
+import { Route,Routes } from 'react-router-dom';
+import Sign_up from './pages/sign-up';
+import Users from './pages/users';
 
 function App() {
-  const [ userExists, userAdded ] = useState(false);
-
-  const submitUser = () => {
-   userAdded(userExist => {
-        return  userExist = true;
-    });
-  }
-
-  const deleteUser = () => {
-    userAdded(userExist => {
-      return  userExist = false;
-    });
-  }
-
   return (
-  <div>
-    <div className="container-sm shadow rounded p-3 mt-3 w-50">
-      <div className="mb-4">
-        <h2>Create account</h2>
-      </div>
-      <div className="container-fluid-sm">
-          
-          <Input_field label="Full Name" inputType="text" />
-          <Input_field label="Email" inputType="email" />
-          <Input_field label="Password(7 characters minimum)" inputType="password" />
-          <Input_field label="Confirm Password" inputType="password" />
-
-          <div className="btn-cont w-100">
-            <button className="btn btn-primary w-100" onClick={submitUser}>Create your movie spot account</button>
-          </div>
-      </div>
+    <div>
+      <Routes>
+        <Route path="/" element={< Sign_up />} />
+      </Routes>
+      <Route path="/users" element={< Sign_up />} />
+      {/* <Route path="/success">
+        <success />
+      </Route> */}
     </div>
-    
-    { userExists ? <User name="MJ" email="myEmail@gmail.com" onClick={deleteUser} /> : null}
-  </div>
   )
 }
 
