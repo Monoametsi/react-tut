@@ -6,6 +6,29 @@ import Pwd_Reset from './pages/password-reset';
 import NavBar from './components/layout/main-navigation';
 
 function App() {
+  const users = [
+    {
+      name: 'MJ',
+      email: 'myEmail@gmail.com'
+    },
+    {
+      name: 'Time',
+      email: 'myMail@gmail.com'
+    },
+    {
+      name: 'Jim',
+      email: 'myEvelope@gmail.com'
+    },
+    {
+      name: 'Bimlin',
+      email: 'student@gmail.com'
+    },
+    {
+      name: 'Rim',
+      email: 'staff@gmail.com'
+    }
+  ]
+
   return (
     <div>
       <NavBar />
