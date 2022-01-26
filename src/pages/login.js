@@ -22,10 +22,10 @@ function Login(){
                 </div>
             </div>
 
-            <div className="d-flex justify-content-center container-sm shadow rounded p-3 mt-3 w-50">
-                <div className="">
-                    <p> New to Movie Spot? <Link to="/sign-up" className="form-link text-primary nav-link">Create an account</Link> </p>
-                </div>
+            <div className="d-flex justify-content-center align-items-center container-sm shadow rounded p-3 mt-3 w-50">
+                
+                    <div className="d-flex align-items-center"> New to Movie Spot? <Link to="/" className="form-link text-primary nav-link">Create an account</Link> </div>
+                
             </div>
         </div>
     )

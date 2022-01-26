@@ -4,6 +4,7 @@ function Input_field(prop){
 
     return (
         <div className="mb-3">
+          
           { 
           prop.label === "Password" ?  
             <div className="d-flex justify-content-between align-items-center">
