@@ -1,22 +1,27 @@
 function Users(){
 	const users = [
     {
+      id:1,
       name: 'MJ',
       email: 'myEmail@gmail.com'
     },
     {
+      id:2,
       name: 'Time',
       email: 'myMail@gmail.com'
     },
     {
+      id:3,
       name: 'Jim',
       email: 'myEvelope@gmail.com'
     },
     {
+      id:4,
       name: 'Bimlin',
       email: 'student@gmail.com'
     },
     {
+      id:5,
       name: 'Rim',
       email: 'staff@gmail.com'
     }
@@ -25,7 +30,7 @@ function Users(){
     return (
 	<div>
 	{ users.map((user) => {
-        return <div className="d-flex border flex-column container shadow rounded p-0 w-50 my-3">
+        return <div key={user.id} className="d-flex border flex-column container shadow rounded p-0 w-50 my-3">
             <div className="d-flex justify-content-center p-2">
                 <h2>User</h2>
             </div>
