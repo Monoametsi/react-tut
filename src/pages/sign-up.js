@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import validator from '../components/form-validator';
 import Input_field from '../components/input-field';
 
 function Sign_up() {
@@ -12,17 +13,22 @@ function Sign_up() {
   const subFormData = (event) => {
     event.preventDefault();
     
+	const inputValidator = new validator();
     const fullNameInput = fullName.current.value;
     const emailInput = email.current.value;
     const pwdInput = pwd.current.value;
+    const confirmPwdInput = confirmPwd.current.value;
+	
+	
     
     const formData = {
       fullName: fullNameInput.trim(),
       email: emailInput.trim(),
-      pwd: pwdInput.trim()
+      pwd: pwdInput.trim(),
+      confirmPwd: confirmPwdInput.trim(),
     }
 
-    fetch('https://movie-spot-node.herokuapp.com/users/register', {
+    fetch('https://users-e2390-default-rtdb.firebaseio.com/users.json', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
