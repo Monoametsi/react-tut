@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import crud_services from '../api-services/crud-services'
 
 function Users(){
+	const api_services = new crud_services();
 	const [users, loadedUsers] = useState([]);
 	const [loaded, loading] = useState(false);
     
-   useEffect(() => {
+    useEffect(() => {
 	   loading(false);
 	   
 	   fetch('https://users-e2390-default-rtdb.firebaseio.com/users.json').then( async (result) => {
@@ -45,10 +47,10 @@ function Users(){
 				<span className="fs-4 fw-light pe-2">Email:</span>
 				<span className="fs-4 font-weight-bold">{user[1].email}</span>
 			</div>
-
+			
 			<div className="btn-cont w-100 p-2 d-flex justify-content-between">
 			<button className="btn btn-primary w-50 me-2">Update {user[1].fullName} details</button>
-			<button className="btn btn-danger w-50 ms-2">Delete {user[1].fullName}</button>
+			<button className="btn btn-danger w-50 ms-2" onClick={() => { api_services.deleteUser(user[0], users, loadedUsers)}}>Delete {user[1].fullName}</button>
 		  </div>
 		</div>
 	})}
