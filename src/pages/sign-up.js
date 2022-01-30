@@ -18,15 +18,15 @@ function Sign_up() {
     const emailInput = email.current.value;
     const pwdInput = pwd.current.value;
     const confirmPwdInput = confirmPwd.current.value;
-	const checkEmpty = inputValidator.checkEmpty(confirmPwdInput) === false || inputValidator.checkEmpty(fullNameInput) === false || inputValidator.checkEmpty(emailInput) === false || inputValidator.checkEmpty(pwdInput) === false;
+	const checkEmpty = !inputValidator.checkEmpty(confirmPwdInput) || !inputValidator.checkEmpty(fullNameInput) || !inputValidator.checkEmpty(emailInput) || !inputValidator.checkEmpty(pwdInput);
 	
 	if(checkEmpty){
       alert('All fields must be filled');
-    }else if(inputValidator.mailValidator(emailInput) === false){
+    }else if(!inputValidator.mailValidator(emailInput)){
       alert('Email is invalid');
-    }else if(inputValidator.pwdValidator(pwdInput) === false){
+    }else if(!inputValidator.pwdValidator(pwdInput)){
       alert('Password should be more than 8 characters');
-    }else if(inputValidator.pwdMatchValidator(pwdInput, confirmPwdInput) === false){
+    }else if(!inputValidator.pwdMatchValidator(pwdInput, confirmPwdInput)){
       alert('Passwords do not match');
     }else{
 		
@@ -44,6 +44,7 @@ function Sign_up() {
 		  }
 		}).then((result) => {
 		  console.log(result); 
+		  navigate("/users", {replace:true});
 		}).catch((err) => {
 		  console.log(err);
 		})
@@ -54,6 +55,9 @@ function Sign_up() {
 return (
   
   <div>
+	
+	<div className="container-fluid bg-dark"></div>
+	
     <div className="container-sm shadow rounded p-3 mt-3 w-50">
       <div className="mb-4">
         <h2>Create account</h2>
@@ -71,7 +75,7 @@ return (
       </form>
     </div>
   </div>
-
+  
   )
 }
 
