@@ -18,27 +18,37 @@ function Sign_up() {
     const emailInput = email.current.value;
     const pwdInput = pwd.current.value;
     const confirmPwdInput = confirmPwd.current.value;
+	const checkEmpty = inputValidator.checkEmpty(confirmPwdInput) === false || inputValidator.checkEmpty(fullNameInput) === false || inputValidator.checkEmpty(emailInput) === false || inputValidator.checkEmpty(pwdInput) === false;
 	
+	if(checkEmpty){
+      alert('All fields must be filled');
+    }else if(inputValidator.mailValidator(emailInput) === false){
+      alert('Email is invalid');
+    }else if(inputValidator.pwdValidator(pwdInput) === false){
+      alert('Password should be more than 8 characters');
+    }else if(inputValidator.pwdMatchValidator(pwdInput, confirmPwdInput) === false){
+      alert('Passwords do not match');
+    }else{
+		
+		const formData = {
+		  fullName: inputValidator.checkEmpty(fullNameInput),
+		  email: inputValidator.mailValidator(emailInput),
+		  pwd: inputValidator.pwdValidator(pwdInput)
+		}
+		
+		fetch('https://users-e2390-default-rtdb.firebaseio.com/users.json', {
+		  method: 'POST',
+		  body: JSON.stringify(formData),
+		  headers: {
+			'Content-Type': 'application/json'
+		  }
+		}).then((result) => {
+		  console.log(result); 
+		}).catch((err) => {
+		  console.log(err);
+		})
+	}
 	
-    
-    const formData = {
-      fullName: fullNameInput.trim(),
-      email: emailInput.trim(),
-      pwd: pwdInput.trim(),
-      confirmPwd: confirmPwdInput.trim(),
-    }
-
-    fetch('https://users-e2390-default-rtdb.firebaseio.com/users.json', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((result) => {
-      console.log(result); 
-    }).catch((err) => {
-      console.log(err);
-    })
   }
 
 return (

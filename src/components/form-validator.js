@@ -3,7 +3,7 @@ function validator(){
         const inputVal = input.trim();
 		
 		if(input === null || input === undefined || inputVal.length === 0 || inputVal === ''){
-			return false
+			return false;
 		}else{
 			return inputVal;
 		}
@@ -40,7 +40,7 @@ function validator(){
 
     this.pwdValidator = function(input){
         const inputVal = input.trim();
-        
+        console.log(inputVal.length);
         if(inputVal.length < 8){
             return false;
         }else{
