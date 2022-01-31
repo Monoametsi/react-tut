@@ -1,7 +1,11 @@
+import Dasboard_body from '../components/dashboard-body'
+import Dasboard_header from '../components/dashboard-header'
+
 function Dashboard() {
     return (
-        <div className="">
-            <div className=""></div>
+        <div className="container-fluid">
+            <Dasboard_header />
+            <Dasboard_body />
         </div>
     )
 }

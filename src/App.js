@@ -4,6 +4,7 @@ import Users from './pages/users';
 import Login from './pages/login';
 import Pwd_Reset from './pages/password-reset';
 import NavBar from './components/layout/main-navigation';
+import Dashboard from './pages/dashboard';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/users" element={< Users />} />
         <Route path="/login" element={< Login />} />
         <Route path="/password-reset" element={< Pwd_Reset />} />
+        <Route path="/dashboard" element={< Dashboard />} />
       </Routes>
     </div>
   )
