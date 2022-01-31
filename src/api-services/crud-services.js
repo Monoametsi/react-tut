@@ -19,7 +19,7 @@ function crud_services(){
 		})
 	}
 
-	this.updateUser = function(user, arr, func, loader, closeModal, upDateData){
+	this.updateUser = function(user, arr, func, loader, upDateData){
 		loader(false);
 		
 		fetch(`https://users-e2390-default-rtdb.firebaseio.com/users/${user}.json`, {
@@ -39,7 +39,6 @@ function crud_services(){
 			arr[Index][1].fullName = formData.fullName;
 			arr[Index][1].email = formData.email;
 			
-			closeModal("modal");
 			loader(true);
 			func(arr);
 		}).catch((err) => {

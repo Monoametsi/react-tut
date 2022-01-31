@@ -31,12 +31,13 @@ function Users(){
 			fullName: fullNameInput.trim(),
 			email: emailInput.trim()
 		}
-
+		
 		if(fullNameInput.length === 0){
-			alert('Fill all fields')
 			closeModal('');
+			console.log(modal)
 		}else{
-			api_services.updateUser(userId, users, loadedUsers, loading, closeModal, formData);
+			closeModal("modal");
+			api_services.updateUser(userId, users, loadedUsers, loading, formData);
 		}
 		
 	}
