@@ -21,7 +21,7 @@ function Modal(props) {
                             <Input_field label="New Password" inputType="password" value={props.newPwdInput} placeholder="Enter your new password"/> */}
                             
                             <div className="btn-cont w-100">
-                                <button type="submit" data-bs-dismiss="modal" className="btn btn-primary w-100">Update {props.fullName} Details</button>
+                                <button type="submit" data-bs-dismiss={props.CloseModal} className="btn btn-primary w-100">Update {props.fullName} Details</button>
                             </div>
                         </form>
                     </div>
