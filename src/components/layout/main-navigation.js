@@ -4,7 +4,7 @@ function NavBar(){
     return (
         <nav className="navbar p-2 navbar-expand-lg navbar-dark bg-dark">
             <Link className="navbar-brand" to="/">Sign Up</Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
