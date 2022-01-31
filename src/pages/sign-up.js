@@ -1,9 +1,11 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validator from '../components/form-validator';
 import Input_field from '../components/input-field';
+import Loader from '../components/loader.js';
 
 function Sign_up() {
+  const [loading, loadDone] = useState(false);
   const navigate = useNavigate();
   const fullName = useRef();
   const email = useRef();
@@ -29,6 +31,7 @@ function Sign_up() {
     }else if(!inputValidator.pwdMatchValidator(pwdInput, confirmPwdInput)){
       alert('Passwords do not match');
     }else{
+		loadDone(true);
 		
 		const formData = {
 		  fullName: inputValidator.checkEmpty(fullNameInput),
@@ -46,6 +49,7 @@ function Sign_up() {
 		  console.log(result); 
 		  navigate("/users", {replace:true});
 		}).catch((err) => {
+		  loadDone(false);
 		  console.log(err);
 		})
 	}
@@ -56,8 +60,7 @@ return (
   
   <div>
 	
-	<div className="container-fluid bg-dark"></div>
-	
+	{ loading ? <Loader /> : null}
     <div className="container-sm shadow rounded p-3 mt-3 w-50">
       <div className="mb-4">
         <h2>Create account</h2>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import crud_services from '../api-services/crud-services'
+import Loader from '../components/loader.js';
 
 function Users(){
 	const api_services = new crud_services();
@@ -26,14 +27,11 @@ function Users(){
 		})
 	}, [])
 	
-	if(!loaded){
-		return(
-			<div>LOADING</div>
-		)
-	}
-	
 	return (
 	<div>
+	
+	{ !loaded ? <Loader /> : null }
+	
 	{ users.map((user) => {
 		return <div key={user[0]} className="d-flex border flex-column container shadow rounded p-0 w-50 my-3">
 			<div className="d-flex justify-content-center p-2">
@@ -50,7 +48,7 @@ function Users(){
 			
 			<div className="btn-cont w-100 p-2 d-flex justify-content-between">
 			<button className="btn btn-primary w-50 me-2">Update {user[1].fullName} details</button>
-			<button className="btn btn-danger w-50 ms-2" onClick={() => { api_services.deleteUser(user[0], users, loadedUsers)}}>Delete {user[1].fullName}</button>
+			<button className="btn btn-danger w-50 ms-2" onClick={() => { api_services.deleteUser(user[0], users, loadedUsers, loading)}}>Delete {user[1].fullName}</button>
 		  </div>
 		</div>
 	})}
