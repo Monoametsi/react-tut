@@ -3,7 +3,7 @@ import Dasboard_header from '../components/dashboard-header'
 
 function Dashboard() {
     return (
-        <div className="container-fluid">
+        <div>
             <Dasboard_header />
             <Dasboard_body />
         </div>
