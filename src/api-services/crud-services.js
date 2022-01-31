@@ -1,6 +1,8 @@
 
 function crud_services(){
-	this.deleteUser = function(user, arr, func){
+	this.deleteUser = function(user, arr, func, loader){
+		loader(false);
+		
 		fetch(`https://users-e2390-default-rtdb.firebaseio.com/users/${user}.json`, {
 			method: 'DELETE'
 		}).then((response) => {
@@ -10,6 +12,7 @@ function crud_services(){
 				return userId[0] !== user;
 			})
 			
+			loader(true);
 			func(arr);
 		}).catch((err) => {
 			console.log(err);
