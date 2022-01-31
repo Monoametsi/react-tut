@@ -5,3 +5,7 @@ label{
 .form-link:hover{
   text-decoration: underline;
 }
+
+.loader.border{
+	border-style: dashed !important;
+}
