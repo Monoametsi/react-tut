@@ -5,6 +5,9 @@ import Login from './pages/login';
 import Pwd_Reset from './pages/password-reset';
 import NavBar from './components/layout/main-navigation';
 import Dashboard from './pages/dashboard';
+import Account_Settings from './pages/account-settings';
+import Edit_profile from './pages/edit-profile';
+import My_Wishlist from './pages/my-wishlist';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
         <Route path="/login" element={< Login />} />
         <Route path="/password-reset" element={< Pwd_Reset />} />
         <Route path="/dashboard" element={< Dashboard />} />
+        <Route path="/accout-settings" element={< Account_Settings />} />
+        <Route path="/edit-profile" element={< Edit_profile />} />
+        <Route path="/my-wishlist" element={< My_Wishlist />} />
       </Routes>
     </div>
   )

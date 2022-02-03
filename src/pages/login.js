@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import Input_field from "../components/input-field";
 import { Link } from 'react-router-dom';
+import validator from '../components/form-validator';
 
 function Login(){
     const email = useRef();
@@ -8,16 +9,22 @@ function Login(){
 
     const formDataSender = (event) => {
         event.preventDefault();
-
+		
+		const inputValidator = new validator();
         const emailInput = email.current.value;
         const pwdInput = pwd.current.value;
+		const checkEmpty = !inputValidator.checkEmpty(emailInput) || !inputValidator.checkEmpty(pwdInput);
 
         const formData = {
-            email: emailInput,
-            pwd: pwdInput
+            email: inputValidator.checkEmpty(emailInput),
+            pwd: inputValidator.checkEmpty(pwdInput)
         }
 
-        console.log(formData);
+        if(checkEmpty){
+			alert('All fields must be filled');
+		}else{
+			alert(`Welcome ${inputValidator.checkEmpty(emailInput)}`);
+		}
     }
 
     return (
