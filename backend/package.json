@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server",
+    "server": "nodemon server/server"
+  },
+  "keywords": [],
+  "author": "Monoametsi Junior <216026633@student.uj.ac.za>",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
