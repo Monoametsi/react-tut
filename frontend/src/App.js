@@ -8,6 +8,7 @@ import Dashboard from './pages/dashboard';
 import Account_Settings from './pages/account-settings';
 import Edit_profile from './pages/edit-profile';
 import My_Wishlist from './pages/my-wishlist';
+import Edit_profile_form from './pages/edit-profile-form';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/accout-settings" element={< Account_Settings />} />
         <Route path="/edit-profile" element={< Edit_profile />} />
         <Route path="/my-wishlist" element={< My_Wishlist />} />
+        <Route path="/edit-profile/:element" element={< Edit_profile_form />} />
       </Routes>
     </div>
   )
