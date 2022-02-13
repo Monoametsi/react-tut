@@ -62,11 +62,26 @@ function Users(){
 		})
 	}, [])
 	
+	const logOut = () => {
+		fetch('http://localhost:4000/api/react-login/logout', {
+			method: 'GET',
+			credentials: 'include'
+		}).then((result) => {
+			console.log(result);
+		}).catch((err) => {
+			console.log(err);
+		})
+	}
+
 	return (
 	<div>
 	
 	{ !loaded ? <Loader /> : null }
-	
+
+	<div className='btn btn-primary' onClick={() => {
+		logOut();
+	}}>Sign Out</div>
+
 	<Modal upDate={upDateUser} CloseModal={modal} fullName={userName} fullNameInput={fullName} emailInput={email} currentPwdInput={currentPwd} newPwdInput={newPwd} />
 
 	{ users.map((user) => {

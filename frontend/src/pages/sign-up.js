@@ -39,12 +39,13 @@ function Sign_up() {
 		  pwd: inputValidator.pwdValidator(pwdInput)
 		}
 		
-		fetch('https://users-e2390-default-rtdb.firebaseio.com/users.json', {
+		fetch('http://localhost:4000/api/react-login/register', {
 		  method: 'POST',
 		  body: JSON.stringify(formData),
 		  headers: {
 			'Content-Type': 'application/json'
-		  }
+		  },
+      credentials: 'include'
 		}).then((result) => {
 		  console.log(result); 
 		  navigate("/users", {replace:true});

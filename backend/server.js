@@ -6,13 +6,18 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const path = require('path');
 const bodyParser = require('body-parser');
-const router = require('./routes/routes')
+const router = require('./routes/routes');
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
 
 dotenv.config({ path: path.join(__dirname, '.env')})
 app.use(express.json());
-app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors(corsOptions));
 
 app.use('/api/react-login/', router);
 
