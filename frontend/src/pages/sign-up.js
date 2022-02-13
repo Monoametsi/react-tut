@@ -15,12 +15,12 @@ function Sign_up() {
   const subFormData = (event) => {
     event.preventDefault();
     
-	const inputValidator = new validator();
+	  const inputValidator = new validator();
     const fullNameInput = fullName.current.value;
     const emailInput = email.current.value;
     const pwdInput = pwd.current.value;
     const confirmPwdInput = confirmPwd.current.value;
-	const checkEmpty = !inputValidator.checkEmpty(confirmPwdInput) || !inputValidator.checkEmpty(fullNameInput) || !inputValidator.checkEmpty(emailInput) || !inputValidator.checkEmpty(pwdInput);
+	  const checkEmpty = !inputValidator.checkEmpty(confirmPwdInput) || !inputValidator.checkEmpty(fullNameInput) || !inputValidator.checkEmpty(emailInput) || !inputValidator.checkEmpty(pwdInput);
 	
 	if(checkEmpty){
       alert('All fields must be filled');
