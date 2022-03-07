@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom';
 import crud_services from '../api-services/crud-services'
 import Loader from '../components/loader';
 import Modal from '../components/modal';
@@ -81,6 +82,7 @@ function Users(){
 	<div className='btn btn-primary' onClick={() => {
 		logOut();
 	}}>Sign Out</div>
+
 
 	<Modal upDate={upDateUser} CloseModal={modal} fullName={userName} fullNameInput={fullName} emailInput={email} currentPwdInput={currentPwd} newPwdInput={newPwd} />
 

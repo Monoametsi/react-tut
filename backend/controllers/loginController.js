@@ -13,7 +13,7 @@ const login = async (req, res) => {
             message: 'You are required to fill all fields!'
         })
     }else{
-
+        
         const findUserEmail = await Users.findOne({ email });
 
         if(findUserEmail){

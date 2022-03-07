@@ -9,6 +9,7 @@ const authMiddlewareLogin = (req, res, next) => {
                 res.cookie('jwt', '', { maxAge: 1 });
                 next();
             }else{
+                
                 res.status(406).json({
                     message: 'Only users that arent loggen in have access to this page',
                     redirect: true
